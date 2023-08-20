@@ -15,7 +15,7 @@ const Login = () => {
               <img src={logo} alt="" />
             </div>
 
-            <div className="inp py-[2px]">
+            <div className="inp py-[2px] text-center">
               <div className="inp1 py-[5]">
                 <input
                   type="text"
@@ -32,7 +32,7 @@ const Login = () => {
               </div>
             </div>
 
-            <div className="btn  py-[30px]">
+            <div className="btn  py-[30px] text-center">
               <Link to="/Home">
                 <button className="text-white bg-blue-400 py-[5px] w-[70%] rounded-lg">
                   Войти
@@ -61,7 +61,7 @@ const Login = () => {
               </div>
             </div>
 
-            <div className="text2 py-[20px]">
+            <div className="text2 py-[20px] text-center">
               <p className="text-xs text-gray-500">Забыли пароль</p>
             </div>
           </div>
@@ -82,7 +82,7 @@ const Login = () => {
           </div>
 
           <div className="block3">
-            <div className="porag1">
+            <div className="porag1 text-center">
               <p>Установите приложения</p>
             </div>
 

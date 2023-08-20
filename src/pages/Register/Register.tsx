@@ -40,7 +40,7 @@ const Register = () => {
             </div>
           </div>
 
-          <div className="inp py-[2px]">
+          <div className="inp py-[2px] text-center">
             <div className="inp1 py-[5]">
               <input
                 type="text"
@@ -92,7 +92,7 @@ const Register = () => {
             </div>
           </div>
 
-          <div className="btn  py-[30px]">
+          <div className="btn  py-[30px] text-center">
             <Link to="/Home">
               <button className="text-white bg-blue-400 py-[5px] w-[70%] rounded-lg">
                 Зарегистрироваться
@@ -116,7 +116,7 @@ const Register = () => {
           </div>
         </div>
 
-        <div className="block3">
+        <div className="block3 text-center">
           <div className="porag1">
             <p>Установите приложения</p>
           </div>

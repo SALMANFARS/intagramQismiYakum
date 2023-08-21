@@ -8,6 +8,8 @@ import Layout from './pages/Layout/Layout'
 import Home from './pages/Home/Home'
 import User from './User/User'
 import Register from './pages/Register/Register'
+import Message from './pages/Message/Message'
+import Explore from './pages/Explore/Explore'
 
 function App() {
 
@@ -15,35 +17,46 @@ function App() {
     // Login
     {
       path: "/",
-      element: <Login/>,
+      element: <Login />,
     },
     // Registration
     {
       path: "/register",
-      element: <Register/>,
+      element: <Register />,
     },
     // HOME
     {
       path: "home",
-      element: <Layout/>,
+      element: <Layout />,
       children: [
         // Home
         {
           index: true,
-          element: <Home/>,
+          element: <Home />,
         },
         // User
         {
           path: "user",
-          element: <User/>,
+          element: <User />,
+        },
+
+        {
+          path: "message",
+          element: <Message />,
+        },
+        {
+          path: "explore",
+          element: <Explore />,
         },
       ],
     },
   ]);
 
   return (
-     <RouterProvider router={router} />
-  )
+    <div className="wrapper">
+      <RouterProvider router={router} />
+    </div>
+  );
 }
 
 export default App

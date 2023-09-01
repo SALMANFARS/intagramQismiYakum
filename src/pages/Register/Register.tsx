@@ -1,11 +1,42 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import facebook from "../../assets/facebook.png";
 import logo from "../../assets/LOGO.png";
 import appstore from "../../assets/appStore.png";
 import googleplay from "../../assets/googlePlay.png";
+import imageshome from "../../assets/images.png";
 
 const Register = () => {
+  const [name, setName] = useState<string>("");
+  const [email, setEamil] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const navigate = useNavigate();
+  const onSubmit = async () => {
+    const user = {
+      userName: name,
+      email: email,
+      password: password,
+      confirmPassword: confirmPassword,
+    };
+
+    try {
+      const response = await fetch(
+        "http://65.108.148.136:8085/Account/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        }
+      );
+      const data = await response.json();
+      if (data.statusCode === 200) {
+        navigate("/");
+      }
+    } catch (e) {}
+  };
   return (
     <div className="section1">
       <div className="conteiner">
@@ -43,32 +74,48 @@ const Register = () => {
           <div className="inp py-[2px] text-center">
             <div className="inp1 py-[5]">
               <input
+                value={name}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                  setName(event.target.value)
+                }
                 type="text"
                 className="border border-gray-400 py-[5px] w-[70%]  outline-none pl-[5px]"
-                placeholder="Моб. телефон или эл.адрес"
+                placeholder="user Name"
               />
             </div>
             <div className="inp2 py-[5px]">
               <input
-                type="password"
+                type="email"
+                value={email}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                  setEamil(event.target.value)
+                }
                 className="border border-gray-400 py-[5px] w-[70%] outline-none pl-[5px]"
-                placeholder="Имя и фамилия"
+                placeholder="email"
               />
             </div>
 
             <div className="inp2 py-[5px]">
               <input
                 type="password"
-                className="border border-gray-400 py-[5px] w-[70%] outline-none pl-[5px]"
-                placeholder="Имя пользователя"
-              />
-            </div>
-
-            <div className="inp2 py-[5px]">
-              <input
-                type="password"
+                value={password}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                  setPassword(event.target.value)
+                }
                 className="border border-gray-400 py-[5px] w-[70%] outline-none pl-[5px]"
                 placeholder="Пароль"
+              />
+            </div>
+
+            <div className="inp2 py-[5px]">
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                  setConfirmPassword(event.target.value)
+                }
+                className="border border-gray-400 py-[5px] w-[70%] outline-none pl-[5px]"
+                placeholder="Подтвердите Пароль"
               />
             </div>
           </div>
@@ -93,11 +140,12 @@ const Register = () => {
           </div>
 
           <div className="btn  py-[30px] text-center">
-            <Link to="/Home">
-              <button className="text-white bg-blue-400 py-[5px] w-[70%] rounded-lg">
-                Зарегистрироваться
-              </button>
-            </Link>
+            <button
+              className="text-white bg-blue-400 py-[5px] w-[70%] rounded-lg"
+              onClick={onSubmit}
+            >
+              Зарегистрироваться
+            </button>
           </div>
         </div>
 
@@ -133,6 +181,6 @@ const Register = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Register
+export default Register;

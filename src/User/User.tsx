@@ -7,6 +7,7 @@ import { BiMoviePlay } from "react-icons/bi";
 import { BiUserPin } from "react-icons/bi";
 
 import { GrGrid } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 const User = () => {
   return (
@@ -25,7 +26,9 @@ const User = () => {
                     <p className="font-bold text-[24px]">salman_kadyrov</p>
                   </div>
                   <div className="btn py-[7px]">
-                    <button>Редактировать профиль</button>
+                    <Link to={"/home/editProfil"}>
+                      <p>Редактировать профиль</p>
+                    </Link>
                   </div>
                   <div className="btn py-[7px]">
                     <button>Паказать архив</button>

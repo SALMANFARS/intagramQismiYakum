@@ -1,24 +1,24 @@
-import React from 'react'
+import React from "react";
 import "../../App.css";
-import { HiHome } from "react-icons/hi"
-import { BsSearch } from "react-icons/bs"
-import { IoCompassOutline } from "react-icons/io5"
-import { BiMoviePlay } from "react-icons/bi"
-import { RiMessengerLine } from "react-icons/ri"
-import { AiOutlineHeart } from "react-icons/ai"
-import { AiOutlinePlusSquare } from "react-icons/ai"
-import { AiOutlineMenu } from "react-icons/ai"
+import { HiHome } from "react-icons/hi";
+import { BsSearch } from "react-icons/bs";
+import { IoCompassOutline } from "react-icons/io5";
+import { BiMoviePlay } from "react-icons/bi";
+import { RiMessengerLine } from "react-icons/ri";
+import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlinePlusSquare } from "react-icons/ai";
+import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineInstagram } from "react-icons/ai";
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
-
-import profil from "../../assets/photoProfil.jpg"
-import { Link, Outlet } from 'react-router-dom';
-
+import profil from "../../assets/photoProfil.jpg";
+import { Link, Outlet } from "react-router-dom";
+import TemporaryDrawer from "../../components/Menu";
+import BasicModal from "../../components/modal";
 
 const Layout = () => {
   return (
@@ -39,10 +39,7 @@ const Layout = () => {
               </Link>
             </div>
 
-            <div className="search flex items-center py-[20px] ml-[4px]">
-              <BsSearch className="text-[30px] " />
-              <p className="sm:hidden lg:block xl:flex ml-[25px]">Search</p>
-            </div>
+            <TemporaryDrawer />
 
             <div className="compas flex items-center py-[20px] ml-[4px]">
               <IoCompassOutline className="text-[30px]" />
@@ -57,6 +54,7 @@ const Layout = () => {
             </div>
             <div className="compas flex items-center py-[20px] ml-[4px]">
               <RiMessengerLine className="text-[30px]" />
+
               <Link to={"/home/message"}>
                 <p className="sm:hidden lg:block xl:flex font-bold ml-[20px]">
                   Message
@@ -71,15 +69,16 @@ const Layout = () => {
               </p>
             </div>
 
-            <div className="compas flex items-center py-[20px] ml-[4px]">
+            <BasicModal />
+            {/* <div className="compas flex items-center py-[20px] ml-[4px]">
               <AiOutlinePlusSquare className="text-[30px]" />
-              <p className="sm:hidden lg:block xl:flex ml-[25px]">Creat</p>
-            </div>
+              <p className="sm:hidden lg:block xl:flex ml-[25px]">Create</p>
+            </div> */}
 
             <div className="compas flex items-center py-[20px] ml-[0px]">
               <img src={profil} alt="" className="rounded-full w-[35px]" />
               <Link to={"/home/User"}>
-                <p className="sm:hidden lg:block xl:flex ml-[25px]">Profil</p>{" "}
+                <p className="sm:hidden lg:block xl:flex ml-[25px]">Profile</p>{" "}
               </Link>
             </div>
 
@@ -121,21 +120,16 @@ const Layout = () => {
             <p className="sm:hidden xl:flex ml-[25px]">Messages</p>
           </div>
 
-          {/* <div className="compas flex items-center py-[20px] ml-[4px]">
+          <div className="compas flex items-center py-[20px] ml-[4px]">
             <AiOutlineHeart className="text-[30px]" />
             <p className="sm:hidden xl:flex ml-[25px]">Notifications</p>
-          </div> */}
-
-          <div className="compas flex items-center py-[20px] ml-[4px]">
-            <AiOutlinePlusSquare className="text-[30px]" />
-            <p className="sm:hidden xl:flex ml-[25px]">Creat</p>
           </div>
 
           <div className="compas flex items-center py-[20px] ml-[0px]">
             <img src={profil} alt="" className="rounded-full w-[35px]" />
             <Link to="/home/User">
               <p className="sm:hidden xl:flex ml-[25px]  cursor-pointer">
-                Profil
+                Profile
               </p>
             </Link>
           </div>
@@ -148,6 +142,6 @@ const Layout = () => {
       </footer>
     </div>
   );
-}
+};
 
-export default Layout
+export default Layout;
